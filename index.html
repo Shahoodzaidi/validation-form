@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVASCRIPT FORM VALIDATION</title>
+  <link rel="stylesheet" href="learning.css">
+</head>
+<body>
+  <div class="main">
+    <div class="page">
+    
+
+      <form action="https://shahoodzaidi.github.io/twogoodco./" class="form" onsubmit="return validation()">
+        <label id="user" >username</label> 
+        <br>
+        <input type="text" id="username"  placeholder="type your username">
+        <span id="user error"></span>
+        <br>
+        <br>
+        <label id="email" >email</label> 
+        <input  type="text" id="emaill"   placeholder="type your email">
+        <span id="email error"></span>
+        <br>
+        <br>
+        <label id="pass" >password</label> 
+        <br>
+        <input type="text" id="password"   placeholder="type your password">
+        <span id="password error"></span>
+        <br>
+        <br>
+        <label id="contact" >contact no.</label> 
+        <input type="number" id="number"   placeholder="type your phone no.">
+        <span id="number error"></span>
+        <center><button>submit</button></center>
+        <div class="foot">
+          <a href="">forget your password?</a>
+          
+            <h4>Don't have an account?</h4> <span><h3>sign up</h3></span>
+          
+        </div>
+
+      </form>
+     
+    
+    </div>
+  </div>
+ 
+  <script>
+  
+
+function validation(){
+  var user = document.getElementById("username").value;
+var email = document.getElementById("emaill").value;
+var password = document.getElementById("password").value;
+var number = document.getElementById("number").value;
+var usercheck=/^[A-za-z. ]{3,}$/;
+var emailcheck=/^[A-Za-z]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,}$/;
+var passcheck=/^(?=.*[0-9])(?=.*[@#$%&*])[a-zA-Z0-9!@#$%^&]{8,20}$/;
+var numcheck=/^[789][0-9]{9}$/;
+let flag = 1;
+if(usercheck.test(user)){
+  document.getElementById("user error").innerHTML="";
+}else{
+  document.getElementById("user error").innerHTML="**invalid username";
+  return false;
+}
+if(emailcheck.test(email)){
+  document.getElementById("email error").innerHTML="";
+}else{
+  document.getElementById("email error").innerHTML="**invalid email";
+  return false;
+}
+if(passcheck.test(password)){
+  alert("you are successfully logein")
+  document.getElementById("password error ").innerHTML="";
+}else{
+  document.getElementById("password error").innerHTML="**invalid password";
+  return false;
+}
+
+
+   
+}
+  </script>
+</body>
+</html>
